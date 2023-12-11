@@ -28,12 +28,17 @@ function App() {
   }
 
   function handleEducationChange(newValue, id){
-    const updatedEducation = education.map((education, index) => {
-      if (index === id)
+    const updatedEducation = education.map((education) => {
+      if (education.id === id)
       return({id: id, institute: {name: newValue.name, startDate:newValue.startDate, endDate: newValue.endDate}})
       else
 	return education
     }) 
+    setEducation(updatedEducation)
+  }
+
+  function handleEducationDelete(id){
+    const updatedEducation = education.filter((education)=> education.id !== id) 
     setEducation(updatedEducation)
   }
 
@@ -42,13 +47,15 @@ function App() {
     educationIndex++
   }
 
+  console.log(education)
+
   return (
     <>
     <Name handleChange={ handleNameChange } value={ name } />
     <Email handleChange={ handleEmailChange } value={ email } />
     <Phone handleChange={ handlePhoneChange } value={ phone } />
     <button onClick={ triggerEducationFields }>Add Education</button>
-    { education.map((education) => <Education add={ education } handleChange={ handleEducationChange } key={ education.id } /> ) }
+    { education.map((education) => <Education add={ education } handleChange={ handleEducationChange } handleDelete={ handleEducationDelete }  key={ education.id } /> ) }
     </>
   )
 }
