@@ -47,8 +47,6 @@ function App() {
     educationIndex++
   }
 
-  console.log(education)
-
   return (
     <>
     <Name handleChange={ handleNameChange } value={ name } />

@@ -22,10 +22,9 @@ export default function Education({add, handleChange, handleDelete}){
       <label for="endDate">End Date</label>
       <input type="date" id="endDate" name="endDate" value={ add.institute.endDate } onChange={(event) => handleChange({name: add.name, endDate: event.target.value, startDate: add.institute.endDate}, add.id)} required />
     </div>
-    <input type="checkbox" onChange={ toggleEndDate }   name="currentInstitute" id="currentInstitute" value="value" key={`educationCurrent${add.id}`} />
-    <label for="currentInstitute">I currently study here</label>
+    <input type="checkbox" onChange={ toggleEndDate }   name="currentInstitute" id={`currentInstitute${add.id}`} value="value" key={`educationCurrent${add.id}`} />
+    <label for={`currentInstitute${add.id}`}>I currently study here</label>
     <button id='deleteEducation' key={`deleteEducation_${add.id}`} onClick={()=> handleDelete(add.id) }>Delete</button>
-    {console.log(add)}
     </>
   )
 }
