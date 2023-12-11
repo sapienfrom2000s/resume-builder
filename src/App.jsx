@@ -2,32 +2,53 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Name from './components/Name.jsx'
+import Email from './components/Email.jsx'
+import Phone from './components/Phone.jsx'
+import Education from './components/Education.jsx'
+
+let educationIndex = 0
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [education, setEducation] = useState([])
+
+  function handleNameChange(newValue){
+    setName(newValue)
+  }
+
+  function handleEmailChange(newValue){
+    setEmail(newValue)
+  }
+
+  function handlePhoneChange(newValue){
+    setPhone(newValue)
+  }
+
+  function handleEducationChange(newValue, id){
+    const updatedEducation = education.map((education, index) => {
+      if (index === id)
+      return({id: id, institute: {name: newValue.name, startDate:newValue.startDate, endDate: newValue.endDate}})
+      else
+	return education
+    }) 
+    setEducation(updatedEducation)
+  }
+
+  function triggerEducationFields(){
+    setEducation([...education, {id: educationIndex, institute: {name: '', startDate: '', endDate:''}}])
+    educationIndex++
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Name handleChange={ handleNameChange } value={ name } />
+    <Email handleChange={ handleEmailChange } value={ email } />
+    <Phone handleChange={ handlePhoneChange } value={ phone } />
+    <button onClick={ triggerEducationFields }>Add Education</button>
+    { education.map((education) => <Education add={ education } handleChange={ handleEducationChange } key={ education.id } /> ) }
     </>
   )
 }
