@@ -1,10 +1,10 @@
 export default function Name({ handleChange, value }){
   return(
-    <>
-      <label for="name">Name</label>
+    <div class='name'>
+      <label for="name">Name</label><br/>
       <input type="text" id="name" name="name" value={ value } 
-    onChange={(event) => handleChange(event.target.value)} required  />
-    </>
+    onChange={(event) => handleChange(event.target.value)} required  /><br/>
+    </div>
   ) 
 }
 

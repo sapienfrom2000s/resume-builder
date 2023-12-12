@@ -33,7 +33,7 @@ function App() {
   function handleEducationChange(newValue, id){
     const updatedEducation = education.map((education) => {
       if (education.id === id)
-      return({id: id, institute: {name: newValue.name, startDate:newValue.startDate, endDate: newValue.endDate}})
+	return({id: id, institute: {name: newValue.name, startDate:newValue.startDate, endDate: newValue.endDate}})
       else
 	return education
     }) 
@@ -53,7 +53,7 @@ function App() {
   function handleWorkChange(newValue, id){
     const updatedWork = work.map((work) => {
       if (work.id === id)
-      return({id: id, company: {name: newValue.name, startDate:newValue.startDate, endDate: newValue.endDate, summary: newValue.summary}})
+	return({id: id, company: {name: newValue.name, startDate:newValue.startDate, endDate: newValue.endDate, summary: newValue.summary}})
       else
 	return work
     }) 
@@ -73,13 +73,33 @@ function App() {
 
   return (
     <>
+    <ul>
+    <li class='logo'>ResumeBuilder</li>
+    <div class='nav-right'>
+    <li>Editor</li>
+    <li>Preview</li>
+    </div>
+    </ul>
+    <hr/>
+    <div class='content'>
+    <h2 class='heading'>Personal Info</h2>
+    <div class='row '>
     <Name handleChange={ handleNameChange } value={ name } />
     <Email handleChange={ handleEmailChange } value={ email } />
+    </div>
+    <div class='row  single-item'>
     <Phone handleChange={ handlePhoneChange } value={ phone } />
+    <div/>
+    </div>
+    <div class='row toggler'>
     <button onClick={ triggerEducationFields }>Add Education</button>
-    { education.map((education) => <Education add={ education } handleChange={ handleEducationChange } handleDelete={ handleEducationDelete }  key={ education.id } /> ) }
+    { education.map((education) => <Education add={ education } handleChange={ handleEducationChange } handleDelete={ handleEducationDelete }  key={ education.id } /> ) }<br/>
+    </div>
+    <div class='row toggler'>
     <button onClick={ triggerWorkFields }>Add Work</button>
-    { work.map((work) => <Work add={ work } handleChange={ handleWorkChange } handleDelete={ handleWorkDelete }  key={ work.id } /> ) }
+    { work.map((work) => <Work add={ work } handleChange={ handleWorkChange } handleDelete={ handleWorkDelete }  key={ work.id } /> ) }<br/>
+    </div>
+    </div>
     </>
   )
 }
