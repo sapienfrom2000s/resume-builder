@@ -80,7 +80,6 @@ function App() {
     <li>Preview</li>
     </div>
     </ul>
-    <hr/>
     <div class='content'>
     <h2 class='heading'>Personal Info</h2>
     <div class='row '>

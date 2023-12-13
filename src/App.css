@@ -8,6 +8,7 @@ ul {
   margin: 0;
   padding: 10px 20px;
   width: 100vw;
+  background-image: linear-gradient(to right, rgb(202, 204, 202), rgb(97, 168, 97))
 } 
 
 li {
@@ -17,6 +18,7 @@ li {
 .nav-right{
   float: right;
   transform: translateY(50%);
+  color: seashell;
 }
 
 .nav-right > li{
@@ -25,6 +27,8 @@ li {
 
 .logo{
   font-size: 30px; 
+  font-family: 'Oswald', sans-serif;
+  color: #146014
 }
 
 .content{
@@ -35,6 +39,7 @@ li {
 .row{
   display: flex;
   justify-content: space-between;
+  margin: 5px 0;
 }
 
 .content{
@@ -55,4 +60,31 @@ li {
 button{
   margin: auto;
   width: max-content;
+  border-radius: 500px;
+}
+
+body{
+  background: url("/background1.jpg");
+}
+
+input, textarea{
+  padding: 7px;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #fbfbfb;
+  border: 2px solid transparent;
+  height: 30px;
+  box-shadow: 0 0 0 1px #dddddd, 0 2px 4px 0 rgb(0 0 0 / 7%), 0 1px 1.5px 0 rgb(0 0 0 / 5%);
+  :focus{
+      border: 2px solid #000;
+      border-radius: 4px;
+  }
+}
+
+textarea{
+  height: 100px;
+}
+
+label{
+  font-size: larger;
 }

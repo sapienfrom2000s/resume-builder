@@ -39,7 +39,7 @@ export default function Work({add, handleChange, handleDelete}){
     </div>
     </div>
       <label for="summary">Summary</label>
-      <textarea rows='6' cols='100' id="summary" name="company" value={ add.company.summary } onChange={(event) => handleChange({name: add.name, startDate: add.company.startDate, endDate: add.company.endDate, summary: event.target.value}, add.id)} required />
+      <textarea rows='9' cols='100' id="summary" name="company" value={ add.company.summary } onChange={(event) => handleChange({name: add.name, startDate: add.company.startDate, endDate: add.company.endDate, summary: event.target.value}, add.id)} required />
     <button id='deleteWork' onClick={()=> handleDelete(add.id) }>Delete</button>
     </div>
   )
