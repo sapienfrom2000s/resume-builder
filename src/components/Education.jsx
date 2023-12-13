@@ -31,7 +31,7 @@ export default function Education({add, handleChange, handleDelete}){
     </div>
     </div>
     <div class='row'>
-    <div class='box'>
+    <div class='box check-box'>
     <input type="checkbox" onChange={ toggleEndDate }   name="currentInstitute" id={`currentInstitute${add.id}`} value="value" key={`educationCurrent${add.id}`} />
     <label for={`currentInstitute${add.id}`}>Currently studying</label>
     </div>

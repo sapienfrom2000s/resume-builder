@@ -33,7 +33,7 @@ export default function Work({add, handleChange, handleDelete}){
     </div>
     </div>
     <div class='row'>
-    <div class='box'>
+    <div class='box check-box'>
     <input type="checkbox" onChange={ toggleEndDate }   name="currentWork" id={`currentWork${add.id}`} value="value" />
     <label for={`currentWork${add.id}`}>Currently working</label>
     </div>
